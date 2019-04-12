@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+    <script src="angular.min.js"></script>
+<body ng-app="parimpar" ng-controller="ctrlParImpar">
+
+        <div class="form-group">
+        <label for="">Digite um valor</label>
+        <input type="number" id="valor" ng-model="valor" class="form-control">
+    </div>
+    <!--<button class="btn btn-primary" onclick="">OK</button>-->
+    <span id="saida"> {{ saida() }}</span>
+    <span class="alert alert-success" ng-if="valor % 2 == 0">PAR</span>
+    <span class="alert alert-danger" ng-if="valor % 2 != 0">IMPAR</span>
+    
+
+        <script>
+            var app = angular.module('parimpar', []);
+            app.controller('ctrlParImpar', function($scope){
+                $scope.saida = function(){
+                    if ($scope.valor % 2 == 0)
+                        return "Par";
+                    else
+                        return "IMPAR";
+                }
+            });
+        </script>
+
+
+
+    </main>
+</body>
+
+</html>

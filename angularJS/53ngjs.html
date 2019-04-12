@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+    <script src="angular.min.js"></script>
+
+<body ng-app="myApp">
+    <main class="container" ng-controller="ctrl53">
+
+        <div class="form-group">
+            <label for="n1">Nota 1</label>
+            <input type="number" class="form-control" ng-model="n1" name="n1">
+        </div>
+        <div class="form-group">
+            <label for="n2">Nota 2</label>
+            <input type="number" class="form-control" ng-model="n2" name="n2">
+        </div>
+        <div class="form-group">
+            <label for="n2">Nota 3</label>
+            <input type="number" class="form-control" ng-model="n3" name="n3">
+        </div>
+        <div class="form-group">
+            <label for="n2">Nota 4</label>
+            <input type="number" class="form-control" ng-model="n4" name="n4">
+        </div>
+        <!--<button class="btn btn-primary">Calcular</button>-->
+        <div>{{ media(n1, n2, n3, n4) }}</div>
+
+        <script>
+            var app = angular.module("myApp", []);
+            app.controller("ctrl53", function($scope){
+                $scope.media = function(v1, v2, v3, v4){
+                    let m = (v1+v2+v3+v4) / 4;
+                    if(m >= 5)
+                        return "<p class='alert alert-success'>Aprovado" + m + " pontos</p>"
+                    return "<p class='alert alert-danger'>Reprovado" + m + " pontos</p>"
+                }
+            });
+        </script>
+
+
+
+    </main>
+</body>
+
+</html>

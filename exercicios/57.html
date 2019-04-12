@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="container">
+
+        <h3>53) Fazer um algoritmo em pseudocodigo para ler quatro valores referentes a quatro notas escolares de um aluno e
+            imprimir uma mensagem dizendo que o aluno foi aprovado, se o valor da média escolar for maior ou igual a 5. Se
+            o aluno não foi aprovado, indicar uma mensagem informando esta condição. Apresentar junto com uma das mensagens
+            o valor da média do aluno para qualquer condição.</h3>
+
+        <span id="saida"></span>
+
+        <form action="">
+            <div class="form-group">
+                <label for="">valor 1</label>
+                <input type="number" id="v1" min="0" max="10" step="0.01" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">valor 2</label>
+                <input type="number" id="v2"  min="0" max="10" step="0.01" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">valor 3</label>
+                <input type="number" id="v3"  min="0" max="10" step="0.01" class="form-control">
+            </div>
+            
+            <button type="button" class="btn btn-primary" onclick="saida(resultado())">OK</button>
+        </form>
+
+        <script>
+            function resultado() {
+                let v1 = parseFloat(document.getElementById("v1").value);
+                let v2 = parseFloat(document.getElementById("v2").value);
+                let v3 = parseFloat(document.getElementById("v3").value);
+                
+                let maior = 0, menor = 0;
+                if(v1 > v2){
+                    maior = v1;
+                    menor = v2;
+                }else{
+                    maior = v2;
+                    menor = v1;
+                }
+                if(v3 > maior){
+                    maior = v3;
+                }
+                if(v3 < menor){
+                    menor = v3;
+                }
+                return"<p>Maior: " + maior + "  Menor: " + menor + "</p>";
+            }
+
+
+
+            function saida(texto) {
+                document.getElementById("saida").innerHTML = texto;
+            }
+        </script>
+    </main>
+</body>
+
+</html>

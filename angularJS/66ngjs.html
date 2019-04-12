@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+    <script src="angular.min.js"></script>
+
+<body ng-app="myApp">
+    <main class="container" ng-controller="ctrl65">
+
+        <div class="form-group">
+            <label for="s1">Salario</label>
+            <input type="number" class="form-control" ng-model="s1" name="s1">
+        </div>
+        <div class="form-group">
+            <label for="f2">Financiamento</label>
+            <input type="number" class="form-control" ng-model="f2" name="f2">
+        </div>
+       
+       
+        <!--<button class="btn btn-primary">Calcular</button>-->
+        
+        <span class="alert alert-info">{{ operacao(s1, f2) }}</span>
+
+        <script>
+            var app = angular.module("myApp", []);
+            app.controller("ctrl65", function($scope){
+                $scope.operacao = function(s1, f2){
+                  let s = (5 * s1);
+
+                    if(s >= f2){
+                        return "Finaciamento concedido";
+                    }
+                        return"Financiamento negado";
+                    
+                    
+                }
+
+            });
+        </script>
+
+            <p><h5>Obrigado por nos consultar</h5></p>
+
+    </main>
+</body>
+
+</html>
