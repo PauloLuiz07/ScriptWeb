@@ -8,45 +8,56 @@
     <title>Exercicios JS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-</head>
     <script src="angular.min.js"></script>
+</head>
 
 <body ng-app="myApp">
-    <main class="container" ng-controller="ctrl65">
+    <main class="container" ng-controller="ctrl66">
+        <h3>66) A Secretaria de Meio Ambiente que controla o índice de poluição
+            mantém 3 grupos de indústrias que são altamente poluentes do meio
+            ambiente. O índice de poluição aceitável varia de 0 (zero) até 0,25. Se
+            o índice sobe para 0,3 as indústrias do 1o grupo são intimadas a
+            suspenderem suas atividades, se o índice crescer para 0,4 as
+            indústrias do 1o e 2o grupo são intimadas a suspenderem suas
+            atividades, se o índice atingir 0,5 todos os grupos devem ser notificados a paralisarem suas atividades. Faça um algoritmo que leia
+            o índice de poluição medido e emita a notificação adequada aos
+            diferentes grupos de empresas.</h3>
 
-        <div class="form-group">
-            <label for="s1">Salario</label>
-            <input type="number" class="form-control" ng-model="s1" name="s1">
-        </div>
-        <div class="form-group">
-            <label for="f2">Financiamento</label>
-            <input type="number" class="form-control" ng-model="f2" name="f2">
-        </div>
-       
-       
-        <!--<button class="btn btn-primary">Calcular</button>-->
-        
-        <span class="alert alert-info">{{ operacao(s1, f2) }}</span>
+        <form>
+            <div class="form-group">
+                <label for="ip">Indice de poluição</label>
+                <input type="number"  class="form-control" ng-model="ip" name="ip">
+            </div>
+            
+            
+        </form>
+
+        <br>
+        <span class="alert alert-info" > {{ saida (ip) }} </span>
 
         <script>
             var app = angular.module("myApp", []);
-            app.controller("ctrl65", function($scope){
-                $scope.operacao = function(s1, f2){
-                  let s = (5 * s1);
+            app.controller("ctrl66", function ($scope) {
+                $scope.saida = function (ip) {
+                  
+                    if (ip <= 0.25){
 
-                    if(s >= f2){
-                        return "Finaciamento concedido";
+                        return "OK" ;
+                        }
+                    if(ip > 0.26 && ip <= 0.3){
+                    return "indústrias do 1º grupo são intimadas a suspenderem suas atividades";
+
                     }
-                        return"Financiamento negado";
-                    
-                    
+                    if(ip > 0.3 && ip <= 0.4){
+                        return " indústrias do 1º e 2º grupo são intimadas a suspenderem suas atividades";
+                   
+                    }
+                    if (ip > 0.41 && ip <= 0.5){
+                        return "todos os grupos devem ser notificados a paralisarem suas atividades";
+                    }
                 }
-
-            });
-        </script>
-
-            <p><h5>Obrigado por nos consultar</h5></p>
-
+            })
+        </script> 
     </main>
 </body>
 
